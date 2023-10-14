@@ -1,0 +1,50 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>helleo</h1>
+    <script>
+        let num = [5, 3, 9, 8, 7, 4];
+
+        function calculateAverage(num) {
+            let sum = 0;
+            for (let i = 0; i <= num.length; i++) {
+                sum += num[i];
+            }
+
+            let average = sum / num.length;
+            console.log(average);
+            return average;
+        }
+
+        const avg = calculateAverage(num);
+        console.log(avg);
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <button id="toggleButton">Toggle</button>
+    <p id="targetElement" style="display: none;">This is a hidden element.</p>
+
+    <script>
+        $(document).ready(function() {
+            $('#toggleButton').click(function() {
+                $('#targetElement').toggle(); // Toggles the visibility of the element
+            });
+        });
+    </script>
+</body>
+</html>

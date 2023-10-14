@@ -1,0 +1,155 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manipulation</title>
+</head>
+<body>
+    <h1>mock Test</h1>
+    <table id="table-data">
+        <thead id="table-set">
+            <tr>
+                <th>Writing</th>
+                <th>Reading</th>
+                <th>Listening</th>
+                <th>Speaking</th>
+                <th>Overall</th>
+                <th><button id="table-row" onclick="Newrow()"></button></th>
+            </tr>
+        </thead>
+        <tbody id="table-work">
+            <tr id="table-work-row">
+              <td><input id="Writing_1" type="number" placeholder="Writing"></td>
+            <td><input id="Reading_1" type="number" placeholder="Reading"></td>
+            <td><input id="Listening_1" type="number" placeholder="Listening"></td>
+            <td><input id="Speaking_1" type="number" placeholder="Speaking"
+            onkeypress="calculatetotal(event,this)"></td>
+            <td><span id="overall_${count}"></span></td>
+            <td><button type="button" class="add-btn" onclick="Newrow()">+</button></td>
+            <td style="display: none;"><button type="button" class="remove-btn" onclick="deletetablerow()">-</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="task4.js">
+    </script>
+</body>
+</html> 
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> Add more functionality </h1>
+    <table id='table-data'>
+        <thead id='thead-data'>
+            <tr>
+                <th>writing</th>
+                <th>reading</th>
+                <th>listening</th>
+                <th>speaking</th>
+                <th>overall</th>
+                
+
+            </tr>
+        </thead>
+        <tbody>
+           <tr>
+           <td>  <input id='Writing_1' type='number' placeholder='writing'></td>
+           <td>  <input id='Reading_1' type='number' placeholder='writing'></td>
+           <td>  <input id='Listening_1' type='number' placeholder='writing'></td>
+           <td>  <input id='Speaking_1' type='number' placeholder='writing'></td>
+           <td> <button>+</button></td>
+           </tr>
+        </tbody>
+    </table>
+</body>
+</html>-->    
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <table id="table-set">
+        <tbody id="table-data">
+        </tbody>
+    </table>
+    <button id="add-row">Add Row</button>
+
+    <script>
+        let count = 1;
+        let previousRow = null;
+
+        function Newrow() {
+            if (previousRow) {
+                previousRow.find(".add-btn").text("-");
+            }
+            count++;
+            const row = `
+                <tr>
+                    <td><input id="reading_${count}" type="number" placeholder="Reading"></td>
+                    <td><input id="Writing_${count}" type="number" placeholder="Writing"></td>
+                    <td><input id="Listening_${count}" type="number" placeholder="Listening"></td>
+                    <td><input id="Speaking_${count}" type="number" placeholder="Speaking"></td>
+                    <td><span id="overall_${count}"></span></td>
+                    <td> <button class="add-btn">+</button></td>
+                    <td><button class="delete-btn">-</button></td>
+                </tr>
+            `;
+            $("#table-data").append(row);
+            previousRow = $("#table-data tr:last");
+        }
+
+        function deleteTableRow(button) {
+            const row = $(button).closest("tr");
+            if (count > 0) {
+                row.remove();
+                count--;
+            } else {
+                console.error("Can't delete more.");
+            }
+            if (row.is(previousRow)) {
+                previousRow = null;
+            }
+        }
+
+        function calculatetotal(event, inputElement) {
+            const id = inputElement.id;
+            const currentCount = parseInt(id.split('_')[1], 10);
+            const reading = parseFloat($(`#reading_${currentCount}`).val()) || 0;
+            const Writing = parseFloat($(`#Writing_${currentCount}`).val()) || 0;
+            const Listening = parseFloat($(`#Listening_${currentCount}`).val()) || 0;
+            const Speaking = parseFloat($(`#Speaking_${currentCount}`).val()) || 0;
+            
+            if (event.key === "Enter") {
+                const result = $(`#overall_${currentCount}`);
+                let average = (reading + Writing + Listening + Speaking).toFixed(2);
+                result.text(average);
+            }
+        }
+
+        $(document).ready(function () {
+            $("#add-row").click(Newrow);
+            $(document).on("click", ".add-btn", Newrow);
+            $(document).on("click", ".delete-btn", function() {
+                deleteTableRow(this);
+            });
+            $(document).on("keypress", "input[type='number']", function(event) {
+                calculatetotal(event, this);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Manipulation</title>
+</head>
+<body>
+    <h1>mock Test</h1>
+    <table id="table-data">
+        <thead id="table-set">
+            <tr>
+                <th>Writing</th>
+                <th>Reading</th>
+                <th>Listening</th>
+                <th>Speaking</th>
+                <th>Overall</th>
+             
+            </tr>
+        </thead>
+        <tbody id="table-work">
+            <tr id="table-work-row">
+              <td><input id="Writing_1" type="number" placeholder="Writing"></td>
+            <td><input id="Reading_1" type="number" placeholder="Reading"></td>
+            <td><input id="Listening_1" type="number" placeholder="Listening"></td>
+            <td><input id="Speaking_1" type="number" placeholder="Speaking"
+            onkeypress="calculatetotal(event,this)"></td>
+            <td><span id="overall_${count}"></span></td>
+            <td><button type="button" class="add-btn" onclick="Newrow()">+</button></td>
+            <td style="display: none;"><button type="button" class="remove-btn" onclick="deletetablerow()">-</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <script src="task2.js">
+    </script>
+</body>
+</html> 
