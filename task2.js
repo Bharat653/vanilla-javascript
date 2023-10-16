@@ -23,7 +23,7 @@ const tablework = document.getElementById("table-work");
 const tableworkdata = document.getElementById("tableworkdata");
 let count = 1;
 let previousRow = null; // Keep track of the previously added row
-function Newrow() {
+function Newrow() { 
     if (previousRow) {
         // If there's a previous row, change its button to a minus sign
         previousRow.querySelector(".add-btn").textContent = "-";

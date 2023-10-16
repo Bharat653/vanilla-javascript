@@ -1,0 +1,68 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showElement()">Show Element</button>
+<button onclick="hideElement()">Hide Element</button>
+<span id='myElement'> Tap on the hide elment</span>
+
+
+<script>
+  function showElement() {
+    document.getElementById("myElement").style.display = "block";
+  } 
+
+  function hideElement() {
+    document.getElementById("myElement").style.display = "none";
+  }
+</script>
+
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myElement {
+            display: none;
+            overflow: hidden;
+            transition: height 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="slideDown()">Show element</button> 
+    <button onclick="slideUp()">Hide element</button>
+    <div id='myElement'>
+        <p>This is a hidden element that slides.</p>
+    </div>
+
+    <script>
+        function slideDown() {
+            const element = document.getElementById("myElement");
+            element.style.display = "block";
+            const height = element.scrollHeight + 'px';
+            element.style.height = height;
+        }
+
+        function slideUp() {
+            const element = document.getElementById("myElement");
+            element.style.height = '0';
+            element.addEventListener('transitionend', () => {
+                element.style.display = "none";
+            }, { once: true });
+        }
+    </script>
+</body>
+</html>

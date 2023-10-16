@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -33,5 +33,87 @@
     </table>
     <script src="task2.js">
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 </body>
-</html> 
+</html>  -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Mock Test</h1>
+  <table id="table-data">
+    <thead id="table-set">
+      <tr>
+        <th>Writing</th>
+        <th>Reading</th>
+        <th>Listening</th>
+        <th>Speaking</th>
+        <th>Overall</th>
+      </tr>
+    </thead>
+    <tbody id="table-work">
+      <tr id="table-work-row">
+        <td><input id="Writing_1" type="number" placeholder="Writing"></td>
+        <td><input id="Reading_1" type="number" placeholder="Reading"></td>
+        <td><input id="Listening_1" type="number" placeholder="Listening"></td>
+        <td>
+          <input id="Speaking_1" type="number" placeholder="Speaking" oninput="calculateOverall(this)">
+        </td>
+        <td><span id="overall_1"></span></td>
+        <td><button type="button" class="add-btn">+</button></td>
+        <td><button type="button" class="remove-btn ">-</button></td>
+        <td style="display: none;"><button type="button" class="remove-btn">-</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    $(document).ready(function() {
+      let count = 1;
+
+      // Function to calculate overall score
+      function calculateOverall(inputField) {
+        const row = $(inputField).closest("tr");
+        const writing = parseFloat(row.find("input[id^='Writing']").val()) || 0;
+        const reading = parseFloat(row.find("input[id^='Reading']").val()) || 0;
+        const listening = parseFloat(row.find("input[id^='Listening']").val()) || 0;
+        const speaking = parseFloat(row.find("input[id^='Speaking']").val()) || 0;
+        const overall = writing + reading + listening + speaking;
+
+        row.find("span[id^='overall']").text(overall);
+      }
+
+      // Add row button click event
+      $(".add-btn").click(function() {
+        count++;
+        const newRow = $("#table-work-row").clone();
+
+        newRow.find("input").each(function() {
+          const inputId = $(this).attr("id");
+          const newInputId = inputId.replace(/_\d+$/, "_" + count);
+          $(this).attr("id", newInputId).val("");
+        });
+
+        
+
+        newRow.find("span[id^='overall']").text("");
+        newRow.find(".add-btn").remove();
+        newRow.find(".remove-btn").css("display", "inline-block");
+
+        newRow.appendTo("#table-work");
+      });
+
+      // Remove row button click event
+      $("#table-data").on("click", ".remove-btn", function() {
+        $(this).closest("tr").remove();
+      });
+    });
+  </script>
+</body>
+</html>
+
