@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1 style="text-align: center;">Array with 5 examples</h1>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    
+    <!-- <button type="number" id="cal"> array number</button>
+    <span id="answer"> result</span> -->
+</body>
+<script>
+    // $(document).ready(function(){
+    //     $("cal").click(function(){
+    //         const a=[7,8,5,3,9,4,55]{
+    //             $('answer')
+    //         }
+ 
+    //     })
+    // })
+
+    const a=[7,8,5,3,9,4,55]
+    document.getElementById("demo1").innerHTML=a;
+
+    const b=["samsung","apple","realme","vivo"]
+    b.pop();
+    document.getElementById("demo2").innerHTML=b;
+
+    const c=["Hardik"]
+    const d=["pandya"]
+    const e=c.concat(d);
+    document.getElementById("demo3").innerHTML=e;
+
+    const g=["samsung","apple","realme","vivo"]
+    g.push("oppo");
+    document.getElementById("demo4").innerHTML=g;
+
+    const p=["samsung","apple","realme","vivo"]
+    delete p[1];
+    document.getElementById("demo5").innerHTML=p;
+
+</script>
+</html>

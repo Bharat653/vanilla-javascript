@@ -1,0 +1,81 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <div class='app'>
+        <h1>simple quiz</h1>
+        <div id='pro'>
+            <div id='question'>
+                <h1>Question</h1>
+            </div>
+            <div id='answer-buttons'>
+                <form>
+                    <h1 id='question'> what is the color of sky </h1>
+                    <input type='radio' id='red' name='color' value='red'>
+                    <label for='red'>red</label><br>
+                    <input type='radio' id='blue' name='color' value='blue'>
+                    <label for='blue'>blue</label><br>
+                    <input type='radio' id='yellow' name='color' value='yellow'>
+                    <label for='yellow'>yellow</label><br>
+                    <input type='radio' id='green' name='color' value='green'>
+                    <label for='green'>green</label><br>
+                    <button class='btn btn-primary' type='submit'>submit</button>
+                    <button class='btn btn-primary'>Next</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+<script src="quiz.js"></script>
+</body>
+
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <div class="quiz-container" id="quiz">
+        <div class="quiz-header">
+          <h2 id="question">Question Text</h2>
+          <form>
+          <ul>
+            <li>
+              <input type="radio" name="answer" id="a" class="answer">
+              <label for="a" id="a_text">Answer</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="b" class="answer">
+              <label for="b" id="b_text">Answer</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="c" class="answer">
+              <label for="c" id="c_text">Answer</label>
+            </li>
+            <li>
+              <input type="radio" name="answer" id="d" class="answer">
+              <label for="d" id="d_text">Answer</label>
+            </li>
+          </ul>
+        </form>
+        </div>
+        <button id="submit">Submit</button>
+      </div>
+      <script src="quiz.js"></script>
+</body>
+</html>

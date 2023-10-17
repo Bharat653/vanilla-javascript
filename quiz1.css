@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+  background-color: #637491;
+}
+.app{
+  background-color: #fff;
+  width: 90%;
+  max-width: 600px;
+  margin: 100px auto 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+.btn{
+  background-color: #fff;
+  color: #222;
+  font-weight: 50%;
+  width: 100%;
+  border: 5px solid #222;
+  padding: 10px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.sol{
+  background-color: #fff;
+  width: 34%;
+  max-width: 600px;
+  margin: 18px auto 0;
+  border-radius: 34px;
+  padding: 10px;
+} 
+ 
